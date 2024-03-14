@@ -7,6 +7,28 @@ function refreshWeather(response) {
   temperatureElement.innerHTML = Math.round(temperature);
 }
 
+function formatDate(date) {
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${day} ${hours}:${minutes}`;
+}
+
+
 function searchCity(city) {
 
   let apikey = "b12c0odeat4861a0ff9b3d1b12e38228";
@@ -16,7 +38,6 @@ function searchCity(city) {
 
 function SearchSubmit(event){
 event.preventDefault();
-
 let searchInput = document.querySelector("#search-input");
 
 searchCity(searchInput.value);
