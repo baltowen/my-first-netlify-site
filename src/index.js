@@ -39,22 +39,20 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
-
 function searchCity(city) {
-
-  let apikey = "b12c0odeat4861a0ff9b3d1b12e38228";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  let apiKey = "b2a5adcct04b33178913oc335f405433";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
   axios.get(apiUrl).then(refreshWeather);
 }
 
-function SearchSubmit(event){
-event.preventDefault();
-let searchInput = document.querySelector("#search-input");
+function handleSearchSubmit(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#search-form-input");
 
-searchCity(searchInput.value);
+  searchCity(searchInput.value);
 }
 
 let searchFormElement = document.querySelector("#search-form");
-searchFormElement.addEventListener("submit", SearchSubmit);
+searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Paris");
