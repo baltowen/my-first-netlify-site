@@ -52,11 +52,11 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
-function displayForecast(params) {
-  let days = ["Tue", "Wed","Thu", "Fri", "Sat"];
-  let forecastHTML = "";
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = "";
 
-   days.forEach(function (day) {
+  days.forEach(function (day) {
     forecastHtml =
       forecastHtml +
       `
@@ -71,10 +71,10 @@ function displayForecast(params) {
         </div>
       </div>
     `;
-   });
+  });
 
-   let forecastElement = document.querySelector("#forecast");
-   forecastElement.innerHTML = forecastHTML;
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
 }
 
 let searchFormElement = document.querySelector("#search-form");
